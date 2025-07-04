@@ -21,6 +21,11 @@ class StringCalculatorTest {
         StringCalculator calc = new StringCalculator();
         assertEquals(5, calc.add("2,3"));
     }
+    @Test
+    void testMultipleNumbersCommaDelimited() {
+        StringCalculator calc = new StringCalculator();
+        assertEquals(10, calc.add("2,3,4,5"));
+    }
 
 }
 
