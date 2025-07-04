@@ -26,5 +26,10 @@ class StringCalculatorTest {
         StringCalculator calc = new StringCalculator();
         assertEquals(14, calc.add("2,3,4,5"));
     }
+    @Test
+    void testNewlineAndCommaDelimiters() {
+        StringCalculator calc = new StringCalculator();
+        assertEquals(6, calc.add("1\n2,3"));
+    }
 }
 
