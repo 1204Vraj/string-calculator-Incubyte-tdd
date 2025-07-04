@@ -1,5 +1,7 @@
 package com.example;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Pattern;
 
 public class StringCalculator {
@@ -9,6 +11,7 @@ public class StringCalculator {
         String delimiters = ",|\n";
         String numbers = input;
 
+        // Custom delimiter format: //;\n1;2
         if (input.startsWith("//")) {
             int newlineIndex = input.indexOf('\n');
             String customDelimiter = input.substring(2, newlineIndex);
@@ -18,9 +21,25 @@ public class StringCalculator {
 
         String[] parts = numbers.split(delimiters);
         int sum = 0;
+        List<Integer> negatives = new ArrayList<>();
+
         for (String part : parts) {
-            sum += Integer.parseInt(part);
+            if (!part.isEmpty()) {
+                int num = Integer.parseInt(part);
+                if (num < 0) {
+                    negatives.add(num);
+                }
+                sum += num;
+            }
         }
+
+        // Throw exception if there are any negative numbers
+        if (!negatives.isEmpty()) {
+            String message = "negative numbers not allowed " +
+                    String.join(",", negatives.stream().map(String::valueOf).toList());
+            throw new IllegalArgumentException(message);
+        }
+
         return sum;
     }
 }
