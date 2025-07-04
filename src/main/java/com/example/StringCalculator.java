@@ -5,7 +5,7 @@ public class StringCalculator {
         if (input.isEmpty()) {
             return 0;
         }
-        String[] parts = input.split(",");
+        String[] parts = input.split(",|\n");
         int sum = 0;
         for (String num : parts) {
             sum += Integer.parseInt(num);
