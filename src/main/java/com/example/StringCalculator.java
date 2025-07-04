@@ -5,6 +5,8 @@ public class StringCalculator {
         if (input.isEmpty()) {
             return 0;
         }
-        return Integer.parseInt(input);
+        String[] parts = input.split(",");
+        if (parts.length == 1) return Integer.parseInt(parts[0]);
+        return Integer.parseInt(parts[0]) + Integer.parseInt(parts[1]);
     }
 }
