@@ -20,6 +20,8 @@ class StringCalculatorTest {
     void testTwoNumbersCommaDelimited() {
         StringCalculator calc = new StringCalculator();
         assertEquals(5, calc.add("2,3"));
+        assertEquals(1002, calc.add("2,1000"));
+        assertEquals(2000, calc.add("1000,1000"));
     }
     @Test
     void testMultipleNumbersCommaDelimited() {
@@ -58,6 +60,14 @@ class StringCalculatorTest {
             StringCalculator.add("//:\n1:-5:-3");
         });
         assertEquals("negative numbers not allowed -5,-3", ex3.getMessage());
+    }
+    @Test
+    void testIgnoreNumbersGreaterThan1000() {
+        StringCalculator calc = new StringCalculator();
+        assertEquals(2, calc.add("2,1001"));
+        assertEquals(5, calc.add("2,1001,3"));
+        assertEquals(0, calc.add("1002,1001"));
+        assertEquals(1005, calc.add("//;\n1000;1001;5"));
     }
 
 }
