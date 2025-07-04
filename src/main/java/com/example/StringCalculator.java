@@ -19,6 +19,14 @@ public class StringCalculator {
             numbers = input.substring(newlineIndex + 1);
         }
 
+        // Custom delimiter format with multiple characters: //[**]\n1**2
+        if (input.startsWith("//[")) {
+            int idx = input.indexOf("]\n");
+            delimiters = Pattern.quote(input.substring(3, idx));
+            numbers = input.substring(idx + 2);
+        }
+
+
         String[] parts = numbers.split(delimiters);
         int sum = 0;
         List<Integer> negatives = new ArrayList<>();
