@@ -16,5 +16,11 @@ class StringCalculatorTest {
         StringCalculator calc = new StringCalculator();
         assertEquals(1, calc.add("1"));
     }
+    @Test
+    void testTwoNumbersCommaDelimited() {
+        StringCalculator calc = new StringCalculator();
+        assertEquals(5, calc.add("2,3"));
+    }
+
 }
 
