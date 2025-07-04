@@ -29,6 +29,9 @@ public class StringCalculator {
                 if (num < 0) {
                     negatives.add(num);
                 }
+                if( num > 1000) {
+                    continue; // Ignore numbers greater than 1000
+                }
                 sum += num;
             }
         }
