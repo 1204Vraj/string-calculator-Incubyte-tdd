@@ -25,11 +25,20 @@ class StringCalculatorTest {
     void testMultipleNumbersCommaDelimited() {
         StringCalculator calc = new StringCalculator();
         assertEquals(14, calc.add("2,3,4,5"));
+        assertEquals(0, calc.add(""));
+        assertEquals(10, calc.add("10"));
     }
     @Test
     void testNewlineAndCommaDelimiters() {
         StringCalculator calc = new StringCalculator();
         assertEquals(6, calc.add("1\n2,3"));
+        assertEquals(7, calc.add("2,2,3"));
+    }
+    @Test
+    void testCustomDelimiter() {
+        StringCalculator calc = new StringCalculator();
+        assertEquals(3, calc.add("//;\n1;2"));
+        assertEquals(10, calc.add("//!\n3!2!5"));
     }
 }
 
