@@ -33,10 +33,10 @@ The entire solution is developed using strict **TDD**:
 | Unknown Amount of Numbers | Supports any amount of comma-separated numbers |
 | Newline as Delimiter | Supports newline (`\n`) as valid delimiter |
 | Custom Delimiter | Single character delimiters like `//;\n1;2` |
-| Multiple Delimiters | Supports multiple delimiters like `//[*][%]\n1*2%3` |
-| Multiple Delimiters of Any Length | Supports custom delimiters like `//[***][%%]\n1***2%%3` |
 | Negative Number Check | Throws exception with list of all negative numbers |
 | Ignore Numbers > 1000 | E.g., `2 + 1001 = 2` |
+| Multiple Custom Delimiters | Supports multiple delimiters like `//[*][%]\n1*2%3` |
+| Multiple Custom Delimiters of Any Length | Supports custom delimiters like `//[***][%%]\n1***2%%3` |
 
 ---
 
