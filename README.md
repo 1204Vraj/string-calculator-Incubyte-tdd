@@ -42,7 +42,7 @@ The entire solution is developed using strict **TDD**:
 
 ## 🧰 Technologies Used
 
-- **Language:** Java 17
+- **Language:** Java 16
 - **Build Tool:** Maven
 - **Testing Framework:** JUnit 5
 - **IDE:** IntelliJ IDEA
