@@ -28,11 +28,11 @@ public class StringCalculator {
         }
         // Custom delimiter format with multiple custom single character delimiters: //[*][%]\n1*2%3
         if (input.startsWith("//[")) {
-            Matcher m = Pattern.compile("//(\\[.?])+\\n").matcher(input);
+            Matcher m = Pattern.compile("//(\\[.*?])+\\n").matcher(input);
             if (m.find()) {
                 String delimSection = input.substring(2, input.indexOf('\n'));
                 List<String> delims = new ArrayList<>();
-                Matcher dm = Pattern.compile("\\[(.?)]").matcher(delimSection);
+                Matcher dm = Pattern.compile("\\[(.*?)]").matcher(delimSection);
                 while (dm.find()) {
                     delims.add(Pattern.quote(dm.group(1)));
                 }
