@@ -2,6 +2,7 @@ package com.example;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class StringCalculator {
@@ -25,6 +26,21 @@ public class StringCalculator {
             delimiters = Pattern.quote(input.substring(3, idx));
             numbers = input.substring(idx + 2);
         }
+        // Custom delimiter format with multiple custom single character delimiters: //[*][%]\n1*2%3
+        if (input.startsWith("//[")) {
+            Matcher m = Pattern.compile("//(\\[.?])+\\n").matcher(input);
+            if (m.find()) {
+                String delimSection = input.substring(2, input.indexOf('\n'));
+                List<String> delims = new ArrayList<>();
+                Matcher dm = Pattern.compile("\\[(.?)]").matcher(delimSection);
+                while (dm.find()) {
+                    delims.add(Pattern.quote(dm.group(1)));
+                }
+                delimiters = String.join("|", delims);
+                numbers = input.substring(input.indexOf('\n') + 1);
+            }
+        }
+
 
 
         String[] parts = numbers.split(delimiters);
