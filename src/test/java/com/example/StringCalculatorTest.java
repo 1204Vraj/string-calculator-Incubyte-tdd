@@ -83,6 +83,13 @@ class StringCalculatorTest {
         assertEquals(8, calc.add("//[!][?]\n1!2?5"));
         assertEquals(10, calc.add("//[*][#][&]\n1*2#3&4"));
     }
+    @Test
+    void testMultipleLongDelimiters() {
+        StringCalculator calc = new StringCalculator();
+        assertEquals(6, calc.add("//[***][%%]\n1***2%%3"));
+        assertEquals(12, calc.add("//[##][&&][^]\n1&&2^4##5"));
+        assertEquals(10, calc.add("//[&&][*][%%%]\n1*2*3%%%4"));
+    }
 
 }
 
